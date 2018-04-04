@@ -14,17 +14,19 @@ def naive_matching(strs, match_str):
     while i < m and j < n:
         if match_str[i] == strs[j]:
             print('yes', i, j)
-            i, j = i+1, j+1
+            i, j = i + 1, j + 1
         else:
             # 整个字符串匹配到了位置j时，前面正确的匹配了i个元素；
             # 如果在j位置失败，则下次匹配开始的位置是 j - i + 1
             print('no', i, j)
-            i, j = 0, j+1-i
+            i, j = 0, j + 1 - i
 
         # 如果i的长度与我们需要匹配的字符串长度一样，那就说明匹配成功了
         if i == m:
-            print(j-m)
-            return j-m
+            print(j - m)
+            return j - m
     return -1
 
-naive_matching(a, b)
+
+if __name__ == '__main__':
+    naive_matching(a, b)
