@@ -12,8 +12,8 @@ Binary Search
 def binary_search(search_lists, search_key):
     """
     二分查找
-    :param search_lists: search lists array 
-    :param search_key: number for search
+    :param search_lists: 已经排好序的列表
+    :param search_key: 查找的值
     :return: 
     """
     # low代表数组里面的最低位置，high代表数组里面的最高位置
