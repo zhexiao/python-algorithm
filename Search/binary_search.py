@@ -11,35 +11,28 @@ Binary Search
 
 def binary_search(search_lists, search_key):
     """
-    Binary search
+    二分查找
     :param search_lists: search lists array 
     :param search_key: number for search
     :return: 
     """
-    min_position = 0
-    max_position = len(search_lists) - 1
+    # low代表数组里面的最低位置，high代表数组里面的最高位置
+    low = 0
+    high = len(search_lists) - 1
 
-    i = 0
-    while max_position >= min_position:
-        i = i + 1
-        # get mid position
-        mid_position = int((min_position + max_position) / 2)
+    while high >= low:
+        # 得到中间位置和值
+        mid = int((low + high) / 2)
+        guess = search_lists[mid]
 
-        # compare the search key with the mid value
-        if search_key == search_lists[mid_position]:
-            print("find {0} at index {1} in {2} times.".format(
-                search_key,
-                mid_position,
-                i
-            ))
-            break
+        if guess == search_key:
+            return mid
+
+        if guess > search_key:
+            high = mid - 1
         else:
-            # value before the middle, new search should from (0 ~ mid-1)
-            if search_key < search_lists[mid_position]:
-                max_position = mid_position - 1
-            # value after the middle, new search should from (mid+1 ~ max)
-            else:
-                min_position = mid_position + 1
+            low = mid + 1
 
-li = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-binary_search(li, 7)
+
+li = [1, 3, 3, 4, 4, 5, 5, 5, 6, 7, 8, 9]
+print(binary_search(li, 7))
