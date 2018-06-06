@@ -75,7 +75,7 @@ def get_lowest_cost_node(costs):
 
 def get_short_path():
     """
-    计算得出最短路径
+    计算得出最短路径,对每个节点都要计算一次，直到全部都计算完全
     :return:
     """
     current_node = get_lowest_cost_node(costs)
@@ -89,7 +89,7 @@ def get_short_path():
             # 计算当前节点到该邻居节点的开销
             to_nbor_cost = current_node_cost + nbor_cost
 
-            # 如果开销小于costs表中的开销，则更新记录
+            # 如果当前节点到该邻居的开销小于costs表中该邻居的开销，则更新记录
             if to_nbor_cost < costs[nbor_node]:
                 # 更新邻居节点的开销
                 costs[nbor_node] = to_nbor_cost
