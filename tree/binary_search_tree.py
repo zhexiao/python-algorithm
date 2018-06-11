@@ -127,10 +127,10 @@ class BinarySearchTree(object):
             # 左右子节点都为空
             elif tree_node.left_child is None and tree_node.right_child is None:
                 tree_node = None
-            # 只有右子节点
+            # 左子节点为空
             elif tree_node.left_child is None:
                 tree_node = tree_node.right_child
-            # 只有左子节点
+            # 右子节点为空
             elif tree_node.right_child is None:
                 tree_node = tree_node.left_child
 
